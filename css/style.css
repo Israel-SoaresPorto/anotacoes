@@ -1,0 +1,202 @@
+:root {
+  --primary-color: #7af2f7;
+  --secondary-color: #cdfa04;
+  --third-color: #f8f3f3;
+  --primary-button-color: #4c40f3;
+  --secondary-button-color: #f03e31;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.confirm {
+  background-color: var(--primary-button-color);
+}
+
+.cancel {
+  background-color: var(--secondary-button-color);
+}
+
+.edit {
+  background-color: var(--primary-button-color);
+}
+
+.delete {
+  background-color: var(--secondary-button-color);
+}
+
+.head {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.head_title {
+  font-size: 1.5rem;
+}
+
+.actions {
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+
+.actions_button {
+  background-color: var(--secondary-color);
+  padding: 0.5em 1em;
+  border: none;
+  outline: none;
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+.actions_button:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.modal {
+  margin: auto;
+  width: 20em;
+  background-color: var(--third-color);
+  padding: 1em;
+  border: none;
+  box-shadow: 0.5em 0.5em 1em rgba(0, 0, 0, 0.2);
+  border-radius: 1em;
+}
+
+.modal_title {
+  font-size: 1.2rem;
+  margin-bottom: 1em;
+}
+
+.modal_form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.modal_form_label {
+  font-weight: 500;
+}
+
+.modal_form_input {
+  padding: 0.5em;
+  border: 1px solid var(--secondary-color);
+  border-radius: 0.5em;
+  outline: none;
+}
+
+.modal_form_input:focus {
+  border: 1px solid var(--primary-color);
+}
+
+.modal_form_textarea {
+  padding: 0.5em;
+  border: 1px solid var(--secondary-color);
+  border-radius: 0.5em;
+  outline: none;
+  resize: none;
+  height: 10em;
+}
+
+.modal_form_textarea:focus {
+  border: 1px solid var(--primary-color);
+}
+
+.modal_form_textarea::placeholder {
+  font-style: italic;
+}
+
+.modal_form_actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.modal_form_button {
+  color: #fff;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notes_info {
+  padding: 1em;
+  border-radius: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1em;
+}
+
+.note_info {
+  width: 15em;
+  background-color: var(--third-color);
+  border: 1px solid var(--secondary-color);
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.note_title {
+  padding: 0.5em;
+  font-size: 1.2rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.note_actions {
+  display: flex;
+  gap: 0.5em;
+}
+
+.note_actions button {
+  padding: 0.5em;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.note_actions button:hover {
+  outline: 0.2em solid var(--secondary-color);
+}
+
+.note_actions img {
+  width: 1em;
+}
+
+.note_content {
+  background-color: var(--secondary-color);
+  padding: 1em;
+  font-size: 1rem;
+  word-wrap: break-word;
+  border-radius: 0 0 1em 1em;
+}
+
+@media screen and (min-width: 21em) {
+  .notes_info {
+    padding: 2em;
+  }
+
+  .note_info {
+    width: 20em;
+  }
+}

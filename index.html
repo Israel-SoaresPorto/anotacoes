@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="shortcut icon"
+      type="image/ico"
+      href="assets/favicon.ico"
+    />
+    <title>Anotações</title>
+  </head>
+  <body>
+    <header class="head">
+      <h1 class="head_title">Anotações</h1>
+    </header>
+    <section class="actions">
+      <button id="open-add-modal" class="actions_button">
+        Adicionar Anotação
+      </button>
+      <dialog id="add-modal" class="modal">
+        <h4 class="modal_title">Adicionar Anotação</h4>
+        <form id="form-add-note" formmethod="dialog" class="modal_form">
+          <label for="add-note-title" class="modal_form_label">Título</label>
+          <input
+            type="text"
+            name="note_title"
+            id="add-note-title"
+            class="modal_form_input"
+            autocomplete="off"
+            required
+          />
+          <label for="add-note-description" class="modal_form_label"
+            >Descrição</label
+          >
+          <textarea
+            name="note-description"
+            id="add-note-description"
+            class="modal_form_textarea"
+            autocomplete="off"
+            placeholder="sua descrição da anotação"
+          ></textarea>
+          <menu class="modal_form_actions">
+            <button
+              type="button"
+              id="close-modal"
+              class="cancel modal_form_button"
+            >
+              Cancelar
+            </button>
+            <button
+              type="submit"
+              id="save-item"
+              class="confirm modal_form_button"
+            >
+              Salvar
+            </button>
+          </menu>
+        </form>
+      </dialog>
+      <dialog id="edit-modal" class="modal">
+        <h4 class="modal_title">Editar Anotação</h4>
+        <form id="form-edit-note" formmethod="dialog" class="modal_form">
+          <label for="edit-note-title" class="modal_form_label">Nome</label>
+          <input
+            type="text"
+            name="note-title"
+            id="edit-note-title"
+            class="modal_form_input"
+            autocomplete="off"
+            required
+          />
+          <label for="edit-note-description" class="modal_form_label"
+            >Descrição</label
+          >
+          <textarea
+            name="note-description"
+            id="edit-note-description"
+            class="modal_form_textarea"
+            autocomplete="off"
+            minlength="20"
+            maxlength="999"
+            placeholder="sua descrição da tarefa"
+            required
+          ></textarea>
+          <menu class="modal_form_actions">
+            <button
+              type="button"
+              id="close-modal"
+              class="cancel modal_form_button"
+            >
+              Cancelar
+            </button>
+            <button
+              type="submit"
+              id="edit-item"
+              class="confirm modal_form_button"
+            >
+              Salvar
+            </button>
+          </menu>
+        </form>
+      </dialog>
+    </section>
+    <main class="content">
+      <section id="notes-info" class="notes_info"></section>
+    </main>
+    <script src="js/app.js"></script>
+  </body>
+</html>
