@@ -8,6 +8,7 @@ ___
 
 ## Funcionalidades
 - Criar, editar e excluir anotações
+- Salvar as anotações em armazenamento local
 - Novas funcionalidades serão adicionadas no futuro
 ___
 
