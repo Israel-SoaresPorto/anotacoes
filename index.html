@@ -4,11 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <link
-      rel="shortcut icon"
-      type="image/ico"
-      href="assets/favicon.ico"
-    />
+    <link rel="shortcut icon" type="image/ico" href="assets/favicon.ico" />
     <title>Anotações</title>
   </head>
   <body>
@@ -19,6 +15,24 @@
       <button id="open-add-modal" class="actions_button">
         Adicionar Anotação
       </button>
+      <!-- Campo de busca -->
+      <div class="search">
+        <input
+          type="search"
+          name="search"
+          id="search-value"
+          class="search_input"
+          placeholder="Pesquisar anotação"
+          autocomplete="off"
+        />
+        <button class="search_button" id="search">
+          <img
+            src="assets/search.png"
+            alt="Ícone de pesquisa"
+            class="search_icon"
+          />
+        </button>
+      </div>
       <!-- Modal de adicionar anotação-->
       <dialog id="add-modal" class="modal">
         <h4 class="modal_title">Adicionar Anotação</h4>

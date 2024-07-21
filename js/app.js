@@ -5,6 +5,7 @@ const editModal = document.querySelector("#edit-modal");
 const editForm = document.querySelector("#form-edit-note");
 const openAddModalBtn = document.querySelector("#open-add-modal");
 const notesInfo = document.querySelector("#notes-info");
+const noteSearch = document.querySelector("#search");
 
 // Array de anotações
 const notesList = [];
@@ -115,6 +116,18 @@ document.addEventListener("DOMContentLoaded", () => {
     notesList.push(...JSON.parse(notesStorage));
     showNotesInfo(notesList);
   }
+});
+
+// Evento para pesquisar anotações
+noteSearch.addEventListener("click", () => {
+  let searchValue = document.querySelector("#search-value").value.toLowerCase();
+  let filteredNotes = notesList.filter((note) => {
+    return (
+      note.title.toLowerCase().includes(searchValue)
+    );
+  });
+
+  showNotesInfo(filteredNotes);
 });
 
 // Evento para abrir o modal de adicionar anotação

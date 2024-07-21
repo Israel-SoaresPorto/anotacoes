@@ -58,8 +58,10 @@ body {
 .actions {
   padding: 1em;
   display: flex;
+  flex-wrap: wrap-reverse;
+  align-items: center;
   justify-content: center;
-  gap: 2em;
+  gap: 1em;
 }
 
 .actions_button {
@@ -76,6 +78,44 @@ body {
 .actions_button:hover {
   background-color: var(--primary-hover-color);
   color: #fff;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+.search_input {
+  width: 13em;
+  font-size: 1em;
+  padding: 0.5em;
+  border: 2px solid var(--secondary-color);
+  border-radius: 0.5em;
+  outline: none;
+  transition: var(--transiton-style);
+}
+
+.search_input:focus {
+  border: 2px solid var(--primary-hover-color);
+}
+
+.search_button {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 0.5em 0.8em;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--transiton-style);
+}
+
+.search_button:hover {
+  background-color: var(--primary-hover-color);
+}
+
+.search_button img{
+  width: 1.5em;
 }
 
 .modal {
@@ -208,6 +248,10 @@ body {
 }
 
 @media screen and (min-width: 21em) {
+  .search_input {
+    width: 15em;
+  }
+
   .notes_info {
     padding: 2em;
   }
