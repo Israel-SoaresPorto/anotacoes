@@ -157,15 +157,13 @@ body {
 .notes_info {
   padding: 1em;
   border-radius: 1em;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 1em;
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+  gap: 2em;
 }
 
 .note_info {
-  width: 15em;
   background-color: var(--secondary-color);
   border-radius: 1em;
   box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0, 0.2);
@@ -206,20 +204,17 @@ body {
   font-size: 1rem;
   word-wrap: break-word;
   border-radius: 0 0 1em 1em;
+  flex-grow: 1;
 }
 
 @media screen and (min-width: 21em) {
   .notes_info {
     padding: 2em;
   }
-
-  .note_info {
-    width: 20em;
-  }
 }
 
-@media screen and (min-width: 64em) {
-  .note_info {
-    width: 25em;
+@media screen and (min-width: 48em) {
+  .notes_info {
+    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
   }
 }
