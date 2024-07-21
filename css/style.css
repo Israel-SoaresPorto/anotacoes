@@ -1,11 +1,11 @@
 :root {
-  --primary-color: #2100fa;
-  --secondary-color: #fa6700;
-  --third-color: #0ffa00;
-  --fourth-color: #d1d1d8;
-  --fifth-color: #417a3d;
-  --primary-button-color: #4c40f3;
-  --secondary-button-color: #f03e31;
+  --primary-color: #2c18b3;
+  --secondary-color: #0ffa00;
+  --third-color: #f8f8f8;
+  --primary-hover-color: #1192e9;
+  --primary-button-color: #2100fa;
+  --secondary-button-color: #f31010;
+  --transiton-style: all ease .3s;
 }
 
 * {
@@ -20,10 +20,20 @@ body {
 
 .confirm {
   background-color: var(--primary-button-color);
+  transition: var(--transiton-style);
+}
+
+.confirm:hover {
+  background-color: color-mix(in srgb, var(--primary-button-color) 80%, white);
 }
 
 .cancel {
   background-color: var(--secondary-button-color);
+  transition: var(--transiton-style)
+}
+
+.cancel:hover {
+  background-color: color-mix(in srgb, var(--secondary-button-color) 80%, white);
 }
 
 .edit {
@@ -35,7 +45,7 @@ body {
 }
 
 .head {
-  background-color: var(--third-color);
+  background-color: var(--secondary-color);
   color: #fff;
   padding: 10px;
   text-align: center;
@@ -60,17 +70,18 @@ body {
   outline: none;
   border-radius: 1em;
   cursor: pointer;
+  transition: var(--transiton-style);
 }
 
 .actions_button:hover {
-  background-color: var(--fourth-color);
+  background-color: var(--primary-hover-color);
   color: #fff;
 }
 
 .modal {
   margin: auto;
   width: 20em;
-  background-color: var(--fifth-color);
+  background-color: color-mix(in srgb, var(--secondary-color) 75%, black);
   color: #fff;
   padding: 1em;
   border: none;
@@ -95,26 +106,28 @@ body {
 
 .modal_form_input {
   padding: 0.5em;
-  border: 1px solid var(--secondary-color);
+  border: 2px solid var(--secondary-color);
   border-radius: 0.5em;
   outline: none;
+  transition: var(--transiton-style);
 }
 
 .modal_form_input:focus {
-  border: 1px solid var(--primary-color);
+  border: 2px solid var(--primary-hover-color);
 }
 
 .modal_form_textarea {
   padding: 0.5em;
-  border: 1px solid var(--secondary-color);
+  border: 2px solid var(--secondary-color);
   border-radius: 0.5em;
   outline: none;
   resize: none;
   height: 10em;
+  transition: var(--transiton-style);
 }
 
 .modal_form_textarea:focus {
-  border: 1px solid var(--primary-color);
+  border: 2px solid var(--primary-hover-color);
 }
 
 .modal_form_textarea::placeholder {
@@ -153,7 +166,7 @@ body {
 
 .note_info {
   width: 15em;
-  background-color: var(--third-color);
+  background-color: var(--secondary-color);
   border-radius: 1em;
   box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0, 0.2);
   display: flex;
@@ -188,7 +201,7 @@ body {
 }
 
 .note_content {
-  background-color: var(--fourth-color);
+  background-color: var(--third-color);
   padding: 1em;
   font-size: 1rem;
   word-wrap: break-word;
