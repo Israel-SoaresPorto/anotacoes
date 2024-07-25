@@ -18,30 +18,22 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-.confirm {
+.confirm, .edit {
   background-color: var(--primary-button-color);
   transition: var(--transiton-style);
 }
 
-.confirm:hover {
+.confirm:hover, .edit:hover {
   background-color: color-mix(in srgb, var(--primary-button-color) 80%, white);
 }
 
-.cancel {
+.cancel, .delete {
   background-color: var(--secondary-button-color);
   transition: var(--transiton-style)
 }
 
-.cancel:hover {
+.cancel:hover, .delete:hover {
   background-color: color-mix(in srgb, var(--secondary-button-color) 80%, white);
-}
-
-.edit {
-  background-color: var(--primary-button-color);
-}
-
-.delete {
-  background-color: var(--secondary-button-color);
 }
 
 .head {
@@ -199,52 +191,52 @@ body {
   border-radius: 1em;
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15em, 17.5em));
+  justify-content: center;
   gap: 2em;
 }
 
-.note_info {
-  background-color: var(--secondary-color);
-  border-radius: 1em;
+.note-card {
+  height: 12.5em;
+  background-color: var(--third-color);
+  padding: 0.75em;
+  border-radius: 0.5em;
   box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0, 0.2);
+  position: relative;
   display: flex;
   flex-direction: column;
+  gap: 2em;
 }
 
-.note_title {
-  padding: 0.5em;
-  font-size: 1.2rem;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1em;
+.note-card_title {
+  font-size: 1.25rem;
 }
 
-.note_actions {
-  display: flex;
-  gap: 0.5em;
+.note-card_description {
+  font-size: 1rem;
+  word-wrap: break-word;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ffffff1a transparent;
 }
 
-.note_actions button {
+.note-card_action {
   padding: 0.5em;
   border: none;
   outline: none;
   border-radius: 50%;
   cursor: pointer;
+  position: absolute;
+  top: 1.75em;
+  right: -1em;
 }
 
-.note_actions img {
+.note-card_action:last-child{
+  top: -1em;
+}
+
+.note-card_action img {
   width: 1em;
-}
-
-.note_content {
-  background-color: var(--third-color);
-  padding: 1em;
-  font-size: 1rem;
-  word-wrap: break-word;
-  border-radius: 0 0 1em 1em;
-  flex-grow: 1;
 }
 
 @media screen and (min-width: 21em) {
@@ -259,6 +251,10 @@ body {
 
 @media screen and (min-width: 48em) {
   .notes_info {
-    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(17.5em, 20em));
+  }
+
+  .note-card {
+    height: 15em;
   }
 }
