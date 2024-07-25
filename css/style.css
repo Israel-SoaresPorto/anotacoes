@@ -2,7 +2,9 @@
   --primary-color: #2c18b3;
   --secondary-color: #0ffa00;
   --third-color: #f8f8f8;
-  --primary-hover-color: #1192e9;
+  --primary-card-color: #1192e9;
+  --secondary-card-color: #ff9203;
+  --third-card-color: #8f30dd;
   --primary-button-color: #2100fa;
   --secondary-button-color: #f31010;
   --transiton-style: all ease .3s;
@@ -68,7 +70,7 @@ body {
 }
 
 .actions_button:hover {
-  background-color: var(--primary-hover-color);
+  background-color: var(--primary-card-color);
   color: #fff;
 }
 
@@ -89,7 +91,7 @@ body {
 }
 
 .search_input:focus {
-  border: 2px solid var(--primary-hover-color);
+  border: 2px solid var(--primary-card-color);
 }
 
 .search_button {
@@ -103,7 +105,7 @@ body {
 }
 
 .search_button:hover {
-  background-color: var(--primary-hover-color);
+  background-color: var(--primary-card-color);
 }
 
 .search_button img{
@@ -145,7 +147,7 @@ body {
 }
 
 .modal_form_input:focus {
-  border: 2px solid var(--primary-hover-color);
+  border: 2px solid var(--primary-card-color);
 }
 
 .modal_form_textarea {
@@ -159,7 +161,7 @@ body {
 }
 
 .modal_form_textarea:focus {
-  border: 2px solid var(--primary-hover-color);
+  border: 2px solid var(--primary-card-color);
 }
 
 .modal_form_textarea::placeholder {
@@ -198,14 +200,36 @@ body {
 
 .note-card {
   height: 12.5em;
-  background-color: var(--third-color);
-  padding: 0.75em;
+  padding: 1em;
   border-radius: 0.5em;
   box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0, 0.2);
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: 1em;
+}
+
+.note-card:nth-child(5n+1) {
+  background-color: var(--primary-card-color);
+  color: #ffffff;
+}
+
+.note-card:nth-child(5n+2) {
+  background-color: var(--secondary-color);
+}
+
+.note-card:nth-child(5n+4) {
+  background-color: var(--secondary-card-color);
+  color: #ffffff;
+}
+
+.note-card:nth-child(5n+3) {
+  background-color: var(--third-color);
+}
+
+.note-card:nth-child(5n+5) {
+  background-color: var(--third-card-color);
+  color: #ffffff;
 }
 
 .note-card_title {
