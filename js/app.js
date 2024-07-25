@@ -1,3 +1,5 @@
+import { NoteCard } from "./NoteCard.js";
+
 // Pegando os elementos do HTML
 const addModal = document.querySelector("#add-modal");
 const addForm = document.querySelector("#form-add-note");
@@ -13,7 +15,27 @@ const notesList = [];
 const notesStorage = localStorage.getItem("notes");
 
 // Função para mostrar as informações da anotações
-function showNoteInfo(note) {
+function showNotesCards(notesList) {
+  notesInfo.innerHTML = "";
+
+  notesList.forEach((note, index) => {
+    let noteCard = new NoteCard(index, note.title, note.description);
+    noteCard.createCard();
+
+    // Adicionando evento de editar anotação
+    document.querySelector(`#edit-note-${index}`).addEventListener("click", () => {
+      noteCard.editNote();
+    });
+
+    // Adicionando evento de deletar anotação
+    document.querySelector(`#delete-note-${index}`).addEventListener("click", () => {
+      noteCard.deleteNote(notesList);
+      showNotesCards(notesList);
+    });
+  });
+}
+
+/* function showNoteInfo(note) {
   // Criando o elemento principal
   let noteInfo = document.createElement("div");
   noteInfo.setAttribute("id", "note-info");
@@ -103,7 +125,7 @@ function showNotesInfo(notes) {
   notes.forEach((note) => {
     showNoteInfo(note);
   });
-}
+} */
 
 // Função para salvar as anotações no localStorage
 function saveNotes() {
@@ -114,7 +136,7 @@ function saveNotes() {
 document.addEventListener("DOMContentLoaded", () => {
   if (notesStorage) {
     notesList.push(...JSON.parse(notesStorage));
-    showNotesInfo(notesList);
+    showNotesCards(notesList);
   }
 });
 
@@ -127,7 +149,7 @@ noteSearch.addEventListener("click", () => {
     );
   });
 
-  showNotesInfo(filteredNotes);
+  showNotesCards(filteredNotes);
 });
 
 // Evento para abrir o modal de adicionar anotação
@@ -155,7 +177,7 @@ addForm.addEventListener("submit", (event) => {
   // Salvando as alterações
   saveNotes();
   // Mostrando as anotações
-  showNotesInfo(notesList);
+  showNotesCards(notesList);
 });
 
 // Evento para fechar o modal de adicionar anotação
@@ -184,7 +206,7 @@ editForm.addEventListener("submit", (event) => {
   // Salvando as alterações
   saveNotes();
   // Mostrando as anotações
-  showNotesInfo(notesList);
+  showNotesCards(notesList);
 });
 
 // Evento para fechar o modal de editar anotação
