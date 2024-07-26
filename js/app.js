@@ -80,7 +80,7 @@ addForm.addEventListener("submit", (event) => {
   // Fechando o modal
   addModal.close();
 
-  // Salvando as alterações
+  // Salvando a anotação
   saveNotes();
   // Mostrando as anotações
   showNotesCards(notesList);
@@ -112,8 +112,11 @@ editForm.addEventListener("submit", (event) => {
 
   // Salvando as alterações
   saveNotes();
-  // Mostrando as anotações
-  showNotesCards(notesList);
+
+  // Mostrando as alterações no card
+  let card = document.querySelector(`.note-card[data-note-id="${id}"]`);
+  card.querySelector(".note-card_title").textContent = title.value;
+  card.querySelector(".note-card_description").textContent = description.value;
 });
 
 // Evento para fechar o modal de editar anotação
