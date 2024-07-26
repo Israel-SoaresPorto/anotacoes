@@ -31,20 +31,29 @@ function saveNotes() {
 
 // Evento para mostrar as anotações ao carregar a página
 document.addEventListener("DOMContentLoaded", () => {
-  if (notesStorage) {
-    notesList.push(...JSON.parse(notesStorage));
-    showNotesCards(notesList);
+  if (!notesStorage) {
+    notesInfo.innerHTML = "<h2>Nenhuma anotação encontrada</h2>";
+    return;
   }
+
+  notesList.push(...JSON.parse(notesStorage));
+  showNotesCards(notesList);
 });
 
 // Evento para pesquisar anotações
 noteSearch.addEventListener("click", () => {
-  let searchValue = document.querySelector("#search-value").value.toLowerCase();
+  let searchValue = document.querySelector("#search-value");
   let filteredNotes = notesList.filter((note) => {
-    return note.title.toLowerCase().includes(searchValue);
+    return note.title.toLowerCase().includes(searchValue.value.toLowerCase());
   });
 
+  if(filteredNotes.length === 0) {
+    notesInfo.innerHTML = "<h2>Nenhuma anotação encontrada</h2>";
+    return;
+  }
+
   showNotesCards(filteredNotes);
+  searchValue.value = "";
 });
 
 // Evento para abrir o modal de adicionar anotação

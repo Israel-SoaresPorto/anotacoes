@@ -198,6 +198,13 @@ body {
   gap: 2em;
 }
 
+.notes_info h2 {
+  font-size: 1.25rem;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+
 .note-card {
   height: 12.5em;
   padding: 1em;
