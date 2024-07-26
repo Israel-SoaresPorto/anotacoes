@@ -114,7 +114,7 @@ body {
 
 .modal {
   margin: auto;
-  width: 20em;
+  width: 25em;
   background-color: color-mix(in srgb, var(--secondary-color) 75%, black);
   color: #fff;
   padding: 1em;
@@ -156,7 +156,7 @@ body {
   border-radius: 0.5em;
   outline: none;
   resize: none;
-  height: 10em;
+  height: 15em;
   transition: var(--transiton-style);
 }
 
@@ -281,6 +281,14 @@ body {
 }
 
 @media screen and (min-width: 48em) {
+  .modal {
+    width: 30em;
+  }
+
+  .modal_form_textarea {
+    height: 17.5em;
+  }
+
   .notes_info {
     grid-template-columns: repeat(auto-fit, minmax(17.5em, 20em));
   }
