@@ -15,23 +15,12 @@ const notesList = [];
 const notesStorage = localStorage.getItem("notes");
 
 // Função para mostrar as informações da anotações
-function showNotesCards(notesList) {
+function showNotesCards(notes) {
   notesInfo.innerHTML = "";
 
-  notesList.forEach((note, index) => {
-    let noteCard = new NoteCard(index, note.title, note.description);
-    noteCard.createCard();
-
-    // Adicionando evento de editar anotação
-    document.querySelector(`#edit-note-${index}`).addEventListener("click", () => {
-      noteCard.editNote();
-    });
-
-    // Adicionando evento de deletar anotação
-    document.querySelector(`#delete-note-${index}`).addEventListener("click", () => {
-      noteCard.deleteNote(notesList);
-      showNotesCards(notesList);
-    });
+  notes.forEach((note) => {
+    let noteCard = new NoteCard(note.id, note.title, note.description, notesList);
+    noteCard.renderCard();
   });
 }
 
@@ -52,11 +41,9 @@ document.addEventListener("DOMContentLoaded", () => {
 noteSearch.addEventListener("click", () => {
   let searchValue = document.querySelector("#search-value").value.toLowerCase();
   let filteredNotes = notesList.filter((note) => {
-    return (
-      note.title.toLowerCase().includes(searchValue)
-    );
+    return note.title.toLowerCase().includes(searchValue);
   });
-  
+
   showNotesCards(filteredNotes);
 });
 
@@ -76,10 +63,12 @@ addForm.addEventListener("submit", (event) => {
 
   // Adicionando a anotação no array
   notesList.push({
+    id: `note_${crypto.getRandomValues(new Uint32Array(1))[0]}`,
     title: title.value,
     description: description.value,
   });
 
+  // Fechando o modal
   addModal.close();
 
   // Salvando as alterações
@@ -97,18 +86,19 @@ addModal.querySelector("#close-modal").addEventListener("click", () => {
 editForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  // Pegando o index da anotação
-  let index = editModal.getAttribute("data-note-index");
+  // Pegando o id da anotação
+  let id = editModal.getAttribute("data-note-id");
+  // Pegando o index da anotação no array
+  let index = notesList.findIndex((note) => note.id === id);
   // Pegando os valores do formulário
   let title = editForm.querySelector("#edit-note-title");
   let description = editForm.querySelector("#edit-note-description");
 
   // Editando a anotação no array
-  notesList[index] = {
-    title: title.value,
-    description: description.value,
-  };
+  notesList[index].title = title.value;
+  notesList[index].description = description.value;
 
+  // Fechando o modal
   editModal.close();
 
   // Salvando as alterações
