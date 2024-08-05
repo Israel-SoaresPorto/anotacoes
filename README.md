@@ -1,3 +1,5 @@
+Aviso: este é uma versão legado, e outra versão está disponivel.
+
 # Projeto Anotações
 ### Projeto pessoal de Anotações
 ___
