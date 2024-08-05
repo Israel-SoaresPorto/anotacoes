@@ -1,4 +1,5 @@
-> ### Aviso: este é uma versão legado, e outra versão está disponivel.
+> Aviso: este é uma versão legado, e outra versão está disponivel  
+> https://github.com/Israel-SoaresPorto/anotacoes
 
 # Projeto Anotações
 ### Projeto pessoal de Anotações
