@@ -16,5 +16,5 @@ ___
 ___
 
 ## Versão legado
-Há uma versão legado deste projeto que pode ser vista.
+Há uma versão legado deste projeto que pode ser vista  
 https://github.com/Israel-SoaresPorto/anotacoes_legado
