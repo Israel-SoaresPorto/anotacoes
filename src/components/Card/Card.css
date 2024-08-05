@@ -1,0 +1,79 @@
+.Card {
+    height: 15em;
+    border-radius: 0.5em;
+    box-shadow: 0 0 1em #00000098;
+    padding: 1em;
+    position: relative;
+}
+
+.Card:nth-child(5n+1) {
+    background-color: var(--primary-card-color);
+}
+
+.Card:nth-child(5n+2) {
+    background-color: var(--secondary-card-color);
+}
+
+.Card:nth-child(5n+3) {
+    background-color: var(--third-card-color);
+}
+
+.Card:nth-child(5n+4) {
+    background-color: var(--fourth-card-color);
+}
+
+.Card:nth-child(5n+5) {
+    background-color: var(--fifth-card-color);
+}
+
+.Card__title {
+    font-weight: bold;
+    color: var(--primary-text-color);
+    margin-bottom: 1em;
+}
+
+.Card__description {
+    height: calc(100% - 3em);
+    color: var(--secondary-text-color);
+    word-wrap: break-word;;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #ffffff09 transparent;
+}
+
+.Card__actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5em;
+    position: absolute;
+    top: -0.75em;
+    right: -0.75em;
+}
+
+.Card__actions button {
+    background-color: var(--primary-button-color);
+    color: var(--primary-text-color);
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    padding: 0.5em;
+    cursor: pointer;
+}
+
+.Card__actions button:hover {
+    background-color: color-mix(in srgb, var(--primary-button-color) 75%, #ffffff);
+}
+
+.Card__actions button:last-child {
+    background-color: var(--secondary-button-color);
+}
+
+.Card__actions button:last-child:hover {
+    background-color: color-mix(in srgb, var(--secondary-button-color) 75%, #ffffff);
+}
+
+.Card__actions button img {
+    width: 1em;
+    height: 1em;
+}

@@ -1,0 +1,48 @@
+.Form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.Form_title{
+  margin-bottom: 0.5em;
+}
+
+.Form input {
+    padding: 0.5em;
+    border: 0.1em solid #999999;
+    outline: none;
+    border-radius: 0.5em;
+}
+
+.Form textarea {
+    height: 10em;
+    padding: 0.5em;
+    border: 0.1em solid #999999;
+    border-radius: 0.5em;
+    outline: none;
+    resize: none;
+}
+
+.Form__actions {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.Form button {
+    padding: 0.5em;
+    background-color: var(--secondary-button-color);
+    color: white;
+    border: none;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+.Form button[type="submit"] {
+    background-color: var(--primary-button-color);
+}
+
+.Form button:hover {
+    opacity: 0.75;
+}
