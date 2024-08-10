@@ -131,11 +131,12 @@ body {
 .modal_form {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 0.5em;
 }
 
 .modal_form_label {
   font-weight: 500;
+  margin-top: 0.5em;
 }
 
 .modal_form_input {
@@ -168,7 +169,13 @@ body {
   font-style: italic;
 }
 
+.title-validate-msg, .description-validate-msg {
+  margin-inline: 1em;
+  font-size: 0.7em;
+}
+
 .modal_form_actions {
+  margin-top: 0.5em;
   display: flex;
   justify-content: space-between;
   gap: 1em;

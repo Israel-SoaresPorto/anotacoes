@@ -8,6 +8,8 @@ const editForm = document.querySelector("#form-edit-note");
 const openAddModalBtn = document.querySelector("#open-add-modal");
 const notesInfo = document.querySelector("#notes-info");
 const noteSearch = document.querySelector("#search");
+const titleInput = document.querySelectorAll('.modal_form_input');
+const descriptionInput = document.querySelectorAll('.modal_form_textarea');
 
 // Array de anotações
 const notesList = [];
@@ -56,6 +58,56 @@ noteSearch.addEventListener("click", () => {
   searchValue.value = "";
 });
 
+// Evento para adicionar verificação de campos de titulo
+titleInput.forEach(input => {
+  input.addEventListener('input', (event) => {
+    titleInputValidity(event.target);
+  });
+});
+
+// Função para verificar a validade do campo de título
+function titleInputValidity(input) {
+  let validationMsg = input.nextElementSibling;
+
+  let validity = input.validity;
+
+  if(validity.valueMissing) {
+    validationMsg.textContent = 'Campo obrigatório';
+  } else if(validity.tooShort) {
+    validationMsg.textContent = 'Mínimo de 3 caracteres';
+  } else if(validity.tooLong) {
+    validationMsg.textContent = 'Máximo de 50 caracteres';
+  } else {
+    validationMsg.textContent = '';
+  }
+}
+
+
+// Evento para adicionar verificação de campos de descrição
+descriptionInput.forEach(input => {
+  input.addEventListener('input', (event) => {
+    descriptionInputValidity(event.target);
+  });
+});
+
+
+// Função para verificar a validade do campo de descrição
+function descriptionInputValidity(input) {
+  let validationMsg = input.nextElementSibling;
+
+  let validity = input.validity;
+
+  if(validity.valueMissing) {
+    validationMsg.textContent = 'Campo obrigatório';
+  } else if(validity.tooShort) {
+    validationMsg.textContent = 'Mínimo de 20 caracteres';
+  } else if(validity.tooLong) {
+    validationMsg.textContent = 'Máximo de 300 caracteres';
+  } else {
+    validationMsg.textContent = '';
+  }
+}
+
 // Evento para abrir o modal de adicionar anotação
 openAddModalBtn.addEventListener("click", () => {
   addForm.reset();
@@ -69,6 +121,12 @@ addForm.addEventListener("submit", (event) => {
   // Pegando os valores do formulário
   let title = addForm.querySelector("#add-note-title");
   let description = addForm.querySelector("#add-note-description");
+
+  if(!title.checkValidity() || !description.checkValidity()) {
+    titleInputValidity(title);
+    descriptionInputValidity(description);
+    return;
+  }
 
   // Adicionando a anotação no array
   notesList.push({
@@ -102,6 +160,12 @@ editForm.addEventListener("submit", (event) => {
   // Pegando os valores do formulário
   let title = editForm.querySelector("#edit-note-title");
   let description = editForm.querySelector("#edit-note-description");
+
+  if(!title.checkValidity() || !description.checkValidity()) {
+    titleInputValidity(title);
+    descriptionInputValidity(description);
+    return;
+  }
 
   // Editando a anotação no array
   notesList[index].title = title.value;

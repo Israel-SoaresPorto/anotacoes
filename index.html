@@ -45,7 +45,10 @@
             class="modal_form_input"
             autocomplete="off"
             required
+            minlength="5"
+            maxlength="50"
           />
+          <span class="title-validate-msg"></span>
           <label for="add-note-description" class="modal_form_label"
             >Descrição</label
           >
@@ -55,7 +58,11 @@
             class="modal_form_textarea"
             autocomplete="off"
             placeholder="sua descrição da anotação"
+            required
+            minlength="20"
+            maxlength="300"
           ></textarea>
+          <span class="description-validate-msg"></span>
           <menu class="modal_form_actions">
             <button
               type="button"
@@ -86,7 +93,10 @@
             class="modal_form_input"
             autocomplete="off"
             required
+            minlength="5"
+            maxlength="50"
           />
+          <span class="title-validate-msg"></span>
           <label for="edit-note-description" class="modal_form_label"
             >Descrição</label
           >
@@ -96,10 +106,11 @@
             class="modal_form_textarea"
             autocomplete="off"
             minlength="20"
-            maxlength="999"
+            maxlength="300"
             placeholder="sua descrição da tarefa"
             required
           ></textarea>
+          <span class="description-validate-msg"></span>
           <menu class="modal_form_actions">
             <button
               type="button"
